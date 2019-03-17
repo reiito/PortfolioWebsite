@@ -1,0 +1,15 @@
+{
+  "name": "portfoliotutorial",
+  "version": "1.0.0",
+  "description": "Portfolio website tutorial",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "author": "Rei",
+  "license": "MIT",
+  "dependencies": {
+    "i": "^0.3.6",
+    "node-sass": "^4.11.0"
+  }
+}
