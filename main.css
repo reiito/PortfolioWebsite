@@ -55,7 +55,7 @@ img
     height: auto;
 }
 #header .header {
-    min-height: 5vh;
+    min-height: 6vh;
     background-color: var(--footerBGColor);
     transition: .3s ease background-color;
 }
@@ -67,7 +67,8 @@ img
     font-weight: 300;
 	text-align: center;
 	margin: 0 auto;
-	transition: opacity .25s ease, font-size .2s ease;
+	transform: scaleY(1);
+	transition: opacity .25s ease, transform .2s ease, font-size .2s ease;
 }
 #header h1:hover
 {
@@ -98,13 +99,13 @@ img
     left: 0;
 }
 #header .nav-list ul a {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 500;
     letter-spacing: .2rem;
     text-decoration: none;
     color: var(--footerFontColor);
     text-transform: lowercase;
-    padding: 15px;
+    padding: 10px;
     display: block;
 }
 #header .nav-list ul a::after {
@@ -195,7 +196,7 @@ img
 }
 #projects h1
 {
-    font-size: 9rem;
+    font-size: 12rem;
     font-weight: 500;
     color: var(--projectsFontColor);
     margin-bottom: 10px;
@@ -204,7 +205,7 @@ img
 }
 #projects h2
 {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 500;
     color: var(--projectsFontColor);
     margin-bottom: 10px;
@@ -213,7 +214,6 @@ img
 }
 #projects .projects-top
 {
-	max-width: 500px;
 	margin: 0 auto;
 }
 #projects .projects-bottom
@@ -222,7 +222,7 @@ img
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 #projects .project-item
 {
@@ -269,10 +269,13 @@ img
 #experience .experience
 {
 	flex-direction: column;
-	text-align: center;
 	margin: 0 auto;
 	padding: 100px 0;
 	max-width: 1500px;
+
+    color: var(--experienceFontColor);
+    letter-spacing: .2rem;
+    text-align: center;
 }
 #experience .experience-top
 {
@@ -286,22 +289,35 @@ img
     justify-content: space-evenly;
     margin: 0 auto;
 }
-#experience h1 {
-	font-size: 5rem;
-    font-weight: 300;
-    color: var(--experienceFontColor);
-    margin-bottom: 10px;
-    letter-spacing: .2rem;
-    text-align: center;
+#experience h1
+{
+	font-size: 6rem;
+	font-weight: 300;
+	margin-bottom: 10px;
 }
 #experience h2
 {
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--experienceFontColor);
-    margin-bottom: 10px;
-    letter-spacing: .2rem;
-    text-align: center;
+    font-size: 3rem;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+#experience h3
+{
+	font-size: 2.5rem;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+#experience h4
+{
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+#experience p
+{
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin-bottom: 15px;
 }
 #experience .experience-bottom
 {
@@ -312,6 +328,16 @@ img
 	flex-wrap: wrap;
 	margin-top: 50px;
 }
+#experience .arrow
+{
+	width: 75px;
+	transform: scaleX(-1);
+	filter: invert(95%) sepia(16%) saturate(577%) hue-rotate(305deg) brightness(107%) contrast(97%);
+}
+#experience .arrow.opposite
+{
+	transform: scaleX(1);
+}
 /* End Projects Section */
 
 /* Footer */
@@ -321,18 +347,21 @@ img
 }
 #footer .footer
 {
-	min-height: 150px;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 1000px;
+	min-height: 170px;
 	flex-direction: column;
 	transition: min-height .5s ease;
 	position: relative;
 }
 #footer .footer.active
 {
-	min-height: 550px;
+	min-height: 675px;
 }
 #footer .expand-footer
 {
-	height: 40px;
 	width: 40px;
 	margin-top: 5px;
 	cursor: pointer;
@@ -343,6 +372,11 @@ img
 {
 	transform: rotate(0deg);
 	transition: transform .5s ease;
+	filter: invert(95%) sepia(16%) saturate(577%) hue-rotate(305deg) brightness(107%) contrast(97%);
+}
+#footer .expand-footer img:hover
+{
+	filter: invert(79%) sepia(38%) saturate(229%) hue-rotate(126deg) brightness(87%) contrast(83%);
 }
 #footer .expand-footer img.active
 {
@@ -352,7 +386,7 @@ img
 {
 	color: var(--footerFontColor);
 	font-weight: 500;
-	font-size: 2rem;
+	font-size: 3rem;
 	letter-spacing: .1rem;
 	top: 40px;
 	position: absolute;
@@ -360,7 +394,7 @@ img
 }
 #footer h1.active
 {
-	font-size: 5rem;
+	font-size: 6rem;
 	top: 60px;
 }
 #footer .social-icons
@@ -388,22 +422,25 @@ img
 
 /* Email Form */
 .fcf-body {
-	transform: scale(0);
+	transform: scaleY(0);
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
     margin: 0;
+	min-width: 500px;
     font-family: -apple-system, Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: var(--footerFontColor);
     text-align: left;
-	transition: transform .25s ease, bottom .25s ease;
+	opacity: 0;
+	transition: transform .3s ease, bottom .3s ease, opacity .2s ease;
 }
 .fcf-body.active {
-	bottom: 125px;
-	transform: scale(1);
-	transition: transform .5s ease, bottom .5s ease;
+	bottom: 90px;
+	transform: scaleY(1);
+	opacity: 1;
+	transition: transform .45s ease, bottom .45s ease, opacity .45s ease-in;
 }
 
 .fcf-form-group {
@@ -423,10 +460,11 @@ img
 
 .fcf-form-control {
     display: block;
+	resize: none;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;

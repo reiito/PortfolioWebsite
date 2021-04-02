@@ -41,16 +41,18 @@ document.addEventListener('scroll', ()=> {
 
 	if (scroll_position > findPos(document.getElementById("show-name-pos")))
     {
-		header_name.style.fontSize = '6rem';
+		header_name.style.fontSize = '4rem';
+        header_name.style.transform = 'scaleY(1)';
         header_name.style.opacity = '1';
 	}
     else 
     {
         header_name.style.fontSize = '0';
+        header_name.style.transform = 'scaleY(0)';
 		header_name.style.opacity = '0';
 	}
 
-    if (scroll_position < findPos(document.getElementById("footer")) - document.getElementById("experience").clientHeight)
+    if (scroll_position < findPos(document.getElementById("hide-footer-pos")))
         retractFooter();
 })
 
