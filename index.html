@@ -33,12 +33,13 @@
     <section id="projects">
         <div class="projects container">
             <div class="projects-top">
-                <h1>rei ito</h1>
-                <h2 id="show-name-pos">programmer, supporter, japanese learner</h2>
+                <h1 id="show-name-pos">rei ito</h1>
+                <h2>programmer, supporter, japanese learner</h2>
             </div>
-            <div class="projects-bottom">
-                <div class="project-item project-card-color">
+            <div class="projects-row" id="first-row-pos">
+                <div class="project-item project-pcvr project-card-color">
                     <h2>VR PC Builder</h2>
+                    <h2>(WIP)</h2>
                 </div>
                 <div class="project-item project-card-color">
                     <h2>Fireborn Menu</h2>
@@ -46,6 +47,30 @@
                 <div class="project-item project-card-color">
                     <h2>Melbourne GGJ 2019</h2>
                 </div>
+            </div>
+            <div class="decor-arrow">
+                <img src="https://img.icons8.com/fluent-systems-filled/96/000000/sort-up.png"/>
+            </div>
+            <div class="project-content">
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                <div class="project-desc">
+                    <h1>Portfolio Website</h1>
+                    <p>gsdfgsdfgsdfgsdfgsdfgsdfg</p>
+                    <div class="project-icons">
+                        <div class="project-link">
+                            <a href="">
+                                <img src="https://img.icons8.com/dusk/128/000000/github.png"/>
+                            </a>
+                        </div>
+                        <div class="project-link">
+                            <a href="">
+                                <img src="https://img.icons8.com/dusk/128/000000/itch-io.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-row" id="second-row-pos">
                 <div class="project-item project-card-color">
                     <h2>University</h2>
                 </div>
@@ -54,6 +79,28 @@
                 </div>
                 <div class="project-item project-card-color">
                     <h2>Portfolio Website</h2>
+                </div>
+            </div>
+            <div class="decor-arrow">
+                <img src="https://img.icons8.com/fluent-systems-filled/96/000000/sort-up.png"/>
+            </div>
+            <div class="project-content">
+                <iframe width="640" height="360" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                <div class="project-desc">
+                    <h1>Portfolio Website</h1>
+                    <p>gsdfgsdfgsdfgsdfgsdfgsdfg</p>
+                    <div class="project-icons">
+                        <div class="project-link">
+                            <a href="">
+                                <img src="https://img.icons8.com/dusk/128/000000/github.png"/>
+                            </a>
+                        </div>
+                        <div class="project-link">
+                            <a href="">
+                                <img src="https://img.icons8.com/dusk/128/000000/itch-io.png"/>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,45 +166,65 @@
 
             <div class="fcf-body">
                 <div id="fcf-form">
-                    <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+                    <form id="fcf-form-id" class="fcf-form-class" action="https://formspree.io/f/xzbybewb" method="POST">
                         <div class="fcf-form-group">
-                            <label for="Name" class="fcf-label">your name</label>
+                            <label for="Name" class="fcf-label">name</label>
                             <div class="fcf-input-group">
-                                <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+                                <input type="text" id="Name" name="name" class="fcf-form-control" required>
                             </div>
                         </div>
                         <div class="fcf-form-group">
-                            <label for="Email" class="fcf-label">your email address</label>
+                            <label for="Email" class="fcf-label">email address</label>
                             <div class="fcf-input-group">
-                                <input type="email" id="Email" name="Email" class="fcf-form-control" required>
+                                <input type="email" id="Email" name="_replyto" class="fcf-form-control" required>
                             </div>
                         </div>
                         <div class="fcf-form-group">
-                            <label for="Message" class="fcf-label">your message</label>
+                            <label for="Message" class="fcf-label">message</label>
                             <div class="fcf-input-group">
-                                <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
+                                <textarea id="Message" name="message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
                             </div>
                         </div>
+                        <input type="hidden" name="_subject" id="email-subject" value="Contact Me Form Submission">
                         <div class="fcf-form-group">
-                            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
+                            <button id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
                         </div>
                     </form>
                 </div>
             </div>
 
+            <p id="my-form-status"></p>
+
             <div class="social-icons">
+                <div class="social-item">
+                    <a href="mailto:contact@reiito.com" target="_blank" rel="noopener noreferrer">
+                        <img src="https://img.icons8.com/color/96/000000/circled-envelope.png"/>
+                    </a>
+                </div>
+                <div class="social-text email-text">
+                    <p>contact@reiito.com</p>
+                </div>
                 <div class="social-item">
                     <a href="https://twitter.com/_reiito" target="_blank" rel="noopener noreferrer">
                         <img src="https://img.icons8.com/color/96/000000/twitter-circled--v1.png"/>
                     </a>
                 </div>
+                <div class="social-text twitter-text">
+                    <p>@_reiito</p>
+                </div>
                 <div class="social-item">
-                    <a href="#">
+                    <a href="https://www.linkedin.com/in/rei-ito/">
                         <img src="https://img.icons8.com/color/96/000000/linkedin-circled--v1.png"/>
                     </a>
                 </div>
+                <div class="social-text linkedin-text">
+                    <p>rei-ito</p>
+                </div>
             </div>
-            <p>Copyright © 2021 Rei. All rights reserved</p>
+            <p>
+                Copyright © 2021 Rei. All rights reserved <br>
+                Icons from <a href="https://icons8.com/"  target="_blank" rel="noopener noreferrer">icons8.com</a>
+            </p>
         </div>
     </section>
     <!-- End Footer Section -->
