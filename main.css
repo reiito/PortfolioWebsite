@@ -67,8 +67,9 @@ img
     font-weight: 300;
 	text-align: center;
 	margin: 0 auto;
-	transform: scaleY(1);
-	transition: opacity .25s ease, transform .2s ease, font-size .2s ease;
+	transform: scale(0);
+	transform-origin: bottom;
+	transition: opacity .3s ease, transform .3s ease, font-size .3s ease;
 }
 #header h1:hover
 {
@@ -223,27 +224,60 @@ img
 }
 #projects .decor-arrow
 {
+	display: flex;
 	width: 96px;
-	height: 14px;
+	height: 0;
+	transform: scaleY(0);
+	transform-origin: bottom;
+	opacity: 0;
 	filter: invert(67%) sepia(39%) saturate(675%) hue-rotate(350deg) brightness(96%) contrast(82%);
-	margin-right: 875px;
-	display: none;
+	transition: height .5s ease, opacity .5s ease, transform .5s ease;
+}
+#projects .decor-arrow.active
+{
+	height: 14px;
+	transform: scaleY(1);
+	opacity: 1;
+	transition: height .2s ease, opacity .2s ease, transform .2s ease, margin-right .25s ease-in-out;
 }
 #projects .project-content
 {
-	min-height: 60vh;
+	height: 0;
+	transform: scaleY(0);
+	transform-origin: top;
+	opacity: 0;
     width: 100%;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-	padding-left: 100px;
 	flex-direction: row;
 	background-color: var(--projectCardBGColor);
+	transition: height .5s ease, opacity .5s ease, transform .5s ease;
+}
+#projects .project-content.active
+{
+	height: 60vh;
+	transform:scale(1);
+	opacity: 1;
+}
+#projects .project-content iframe
+{
+	height: 0;
+	transform: scaleY(0);
+	transform-origin: top;
+	opacity: 0;
+	transition: height .5s ease, opacity .5s ease, transform .5s ease;
+}
+#projects .project-content iframe.active
+{
+	height: 360px;
+	transform:scaleY(1);
+	opacity: 1;
 }
 #projects .project-desc
 {
 	height: 375px;
-	width: 45%;
+	width: 50%;
 	display: flex;
 	text-align: left;
 	align-items: left;
@@ -277,8 +311,8 @@ img
 }
 #projects .project-item
 {
-	height: 225px;
-	width: 450px;
+	height: 275px;
+	width: 475px;
 	flex-basis: 30%;
 	margin: 1.5% 1.5% 0 1.5%;
 	display: flex;
@@ -286,20 +320,12 @@ img
 	justify-content: center;
 	flex-direction: column;
 	border-radius: 10px;
-	background-size: cover;
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
 	cursor: pointer;
-}
-#projects .project-item.project-pcvr
-{
-	background-image: url(./img/vr2-static.jpg);
-	background-position: 0 0px;
-}
-#projects .project-item.project-pcvr:hover
-{
-	background-image: url(./img/vr2.gif);
+	background-size: cover;
+	background-position: auto;
 }
 #projects .project-item::after
 {
@@ -316,11 +342,12 @@ img
 #projects .project-item h2
 {
 	color: var(--footerFontColor);
-	font-size: 3.5rem;
+	font-size: 4rem;
+	padding: 10px
 }
 /* End Projects Section */
 
-/* Projects Section */
+/* Experience Section */
 #experience
 {
 	background-color: var(--experienceBGColor);
@@ -330,8 +357,7 @@ img
 	flex-direction: column;
 	margin: 0 auto;
 	padding: 100px 0;
-	max-width: 1500px;
-
+	max-width: 700px;
     color: var(--experienceFontColor);
     letter-spacing: .2rem;
     text-align: center;
@@ -342,7 +368,7 @@ img
 	margin: 0 auto;
 }
 #experience .icon {
-    width: 40px;
+    width: 45px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -376,7 +402,7 @@ img
 {
 	font-size: 1.5rem;
 	font-weight: 300;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 #experience .experience-bottom
 {
@@ -389,13 +415,10 @@ img
 }
 #experience .arrow
 {
-	width: 75px;
+	width: 40px;
+	height: 80px;
 	transform: scaleX(-1);
 	filter: invert(95%) sepia(16%) saturate(577%) hue-rotate(305deg) brightness(107%) contrast(97%);
-}
-#experience .arrow.opposite
-{
-	transform: scaleX(1);
 }
 /* End Projects Section */
 
@@ -472,6 +495,7 @@ img
 {
 	width: 0;
 	transform: scaleX(0);
+	transform-origin: left;
 	opacity: 0;
 	transition: width .5s ease, transform .5s ease, opacity .4s ease-out;
 }
@@ -515,10 +539,11 @@ img
 
 /* Email Form */
 .fcf-body {
-	transform: scaleY(0);
+	transform: scale(0);
+	transform-origin: bottom;
 	position: absolute;
-	bottom: 0;
     margin: 0;
+	bottom: 110px;
 	min-width: 500px;
     font-family: -apple-system, Arial, sans-serif;
     font-size: 2rem;
@@ -527,13 +552,12 @@ img
     color: var(--footerFontColor);
     text-align: left;
 	opacity: 0;
-	transition: transform .3s ease, bottom .3s ease, opacity .2s ease;
+	transition: transform .4s ease, opacity .4s ease;
 }
 .fcf-body.active {
-	bottom: 100px;
-	transform: scaleY(1);
+	transform: scale(1);
 	opacity: 1;
-	transition: transform .45s ease, bottom .45s ease, opacity .45s ease-in;
+	transition: transform .5s ease, opacity .5s ease;
 }
 
 .fcf-form-group {
