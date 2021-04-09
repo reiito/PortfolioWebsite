@@ -260,7 +260,11 @@ img
 	transform:scale(1);
 	opacity: 1;
 }
-#projects .project-content iframe
+#projects .project-video
+{
+	animation: change-content-left 1s;
+}
+#projects .project-video iframe
 {
 	height: 0;
 	transform: scaleY(0);
@@ -268,7 +272,7 @@ img
 	opacity: 0;
 	transition: height .5s ease, opacity .5s ease, transform .5s ease;
 }
-#projects .project-content iframe.active
+#projects .project-video iframe.active
 {
 	height: 360px;
 	transform:scaleY(1);
@@ -285,6 +289,7 @@ img
 	flex-direction: column;
 	padding-left: 60px;
 	color: var(--projectCardFontColor);
+	animation: change-content-left 1s;
 }
 #projects .project-icons
 {
@@ -403,6 +408,7 @@ img
 	font-size: 1.5rem;
 	font-weight: 300;
 	margin-bottom: 10px;
+	max-width: 400px;
 }
 #experience .experience-bottom
 {
@@ -704,5 +710,40 @@ input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[typ
 /* End Email Form */
 
 /* Animations */
-
+@keyframes change-content-right {
+	0% {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+	45% {
+		transform: translateX(1000px);
+		opacity: 0;	
+	}
+	55% {
+		transform: translateX(-1000px);
+		opacity: 0;	
+	}
+	100% {
+		transform: translateX(0);
+	  	opacity: 1;
+	}
+}
+@keyframes change-content-left {
+	0% {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+	45% {
+		transform: translateX(-1000px);
+		opacity: 0;	
+	}
+	55% {
+		transform: translateX(1000px);
+		opacity: 0;	
+	}
+	100% {
+		transform: translateX(0);
+	  	opacity: 1;
+	}
+}
 /* End Animations */

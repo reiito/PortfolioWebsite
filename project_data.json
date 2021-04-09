@@ -3,10 +3,10 @@
         "static_path": "url(./img/vr_static.jpg)",
         "gif_path": "url(./img/vr.gif)",
         "video_link": "https://www.youtube.com/embed/B4CcX720DW4",
-        "title": "PC VR Builder (WIP)",
+        "title": "VR PC Builder (WIP)",
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "",
-        "itchio_link": ""
+        "github_link": "sup",
+        "itchio_link": "sup"
     },
     {
         "static_path": "url(./img/vr_static.jpg)",
@@ -14,8 +14,8 @@
         "video_link": "https://www.youtube.com/embed/us3pCHd8PLs",
         "title": "Portfolio Website",
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "",
-        "itchio_link": ""
+        "github_link": "sup",
+        "itchio_link": "sup"
     },
     {
         "static_path": "url(./img/vr_static.jpg)",
@@ -23,8 +23,8 @@
         "video_link": "https://www.youtube.com/embed/G9Qm7P_9DBs",
         "title": "Corporate",
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "",
-        "itchio_link": ""
+        "github_link": "sup",
+        "itchio_link": "sup"
     },
     {
         "static_path": "url(./img/vr2_static.jpg)",
@@ -32,17 +32,17 @@
         "video_link": "https://www.youtube.com/embed/SQNtGoM3FVU",
         "title": "Fireborn Menu System",
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "",
-        "itchio_link": ""
+        "github_link": "sup",
+        "itchio_link": "sup"
     },
     {
-        "static_path": "url(./img/vr2_static.jpg)",
-        "gif_path": "url(./img/vr2.gif)",
+        "static_path": "url(./img/vr_static.jpg)",
+        "gif_path": "url(./img/vr.gif)",
         "video_link": "https://www.youtube.com/embed/e05ClTDW9F4",
         "title": "Melbourne GGJ 2019",
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "",
-        "itchio_link": ""
+        "github_link": "sup",
+        "itchio_link": "sup"
     },
     {
         "static_path": "url(./img/vr2_static.jpg)",
@@ -50,7 +50,7 @@
         "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
         "title": "University",
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "",
-        "itchio_link": ""
+        "github_link": "sup",
+        "itchio_link": "sup"
     }
 ]
