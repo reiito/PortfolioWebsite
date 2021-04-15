@@ -14,6 +14,7 @@ var form = document.getElementById("fcf-form-id");
 var projectsData;
 var experienceData;
 var activeItem = null;
+var activeIndex = -1;
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -25,43 +26,58 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 document.querySelector('.projects').innerHTML += (
                     '<div class="projects-row">\n' +
-                        '<div class="project-item project-card-color">\n' +
-                            '<h2>' + projectsData[index].title + '</h2>\n' +
-                        '</div>\n' +
-                        '<div class="project-item project-card-color">\n' +
-                            '<h2>' + projectsData[index+1].title + '</h2>\n' +
-                        '</div>\n' +
-                        '<div class="project-item project-card-color">\n' +
-                            '<h2>' + projectsData[index+2].title + '</h2>\n' +
-                        '</div>\n' +
                     '</div>\n' +
                     '<div class="decor-arrow">\n' +
                         '<img src="https://img.icons8.com/fluent-systems-filled/96/000000/sort-up.png"/>\n' +
                     '</div>\n' +
-                    '<div class="project-content">\n' +
-                        '<div class="project-video">\n' +
-                            '<iframe width="640" height="360" src="' + projectsData[index].video_link + '"></iframe>\n' +
-                        '</div>\n' +
-                        '<div class="project-desc">\n' +
-                            '<h1>' + projectsData[index].title + '</h1>\n' +
-                            '<p>' + projectsData[index].description + '</p>\n' +
-                            '<div class="project-icons">\n' +
-                                '<div class="project-link">\n' +
-                                    '<a href="' + projectsData[index].github_link + '">\n' +
-                                        '<img src="https://img.icons8.com/dusk/128/000000/github.png"/>\n' +
-                                    '</a>\n' +
-                                '</div>\n' +
-                                '<div class="project-link">\n' +
-                                    '<a href="' + projectsData[index].itchio_link + '">\n' +
-                                        '<img src="https://img.icons8.com/dusk/128/000000/itch-io.png"/>\n' +
-                                    '</a>\n' +
-                                '</div>\n' +
-                            '</div>\n' +
-                        '</div>\n' +
+                    '<div class="project-section">\n' +
                     '</div>\n'
                 )
             }
+
+            document.querySelectorAll('.projects-row')[Math.floor(index / 3)].innerHTML += (
+                '<div class="project-item project-card-color">\n' +
+                    '<h2>' + projectsData[index].title + '</h2>\n' +
+                '</div>\n'
+            )
+
+            document.querySelectorAll('.project-section')[Math.floor(index / 3)].innerHTML += (
+                '<div class="project-content">\n' +
+                    '<div class="project-video">\n' +
+                        '<iframe width="0" height="0" src="' + projectsData[index].video_link + '"></iframe>\n' +
+                    '</div>\n' +
+                    '<div class="project-desc">\n' +
+                        '<h1>' + projectsData[index].title + '</h1>\n' +
+                        '<p>' + projectsData[index].description + '</p>\n' +
+                        '<div class="project-icons">\n' +
+                            '<div class="project-link">\n' +
+                                '<a href="' + projectsData[index].github_link + '">\n' +
+                                    '<img src="https://img.icons8.com/dusk/128/000000/github.png"/>\n' +
+                                '</a>\n' +
+                            '</div>\n' +
+                            '<div class="project-link">\n' +
+                                '<a href="' + projectsData[index].itchio_link + '">\n' +
+                                    '<img src="https://img.icons8.com/dusk/128/000000/itch-io.png"/>\n' +
+                                '</a>\n' +
+                            '</div>\n' +
+                        '</div>\n' +
+                    '</div>\n' +
+                '</div>\n'
+            )
         })
+
+        if ((document.querySelectorAll('.project-item').length % 3) > 0)
+        {
+            if ((document.querySelectorAll('.project-item').length % 3) == 1)
+            {
+                document.querySelectorAll('.project-item')[document.querySelectorAll('.project-item').length - 1].classList.add('project-item-diff1');
+            }
+            else
+            {
+                document.querySelectorAll('.project-item')[document.querySelectorAll('.project-item').length - 1].classList.add('project-item-diff2');
+                document.querySelectorAll('.project-item')[document.querySelectorAll('.project-item').length - 2].classList.add('project-item-diff2');
+            }
+        }
 
         document.querySelectorAll('.project-item').forEach((item, index) => {
             var roundedIndex = Math.floor(index / 3);
@@ -70,25 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.project-'+ [index]).style.backgroundImage = projectsData[index].static_path;
 
             item.addEventListener('click', () => {
-                document.querySelectorAll('.project-video')[roundedIndex].style.animation = 'none';
-                document.querySelectorAll('.project-desc')[roundedIndex].style.animation = 'none';
-                document.querySelectorAll('.project-video')[roundedIndex].offsetHeight; /* trigger reflow */
-                document.querySelectorAll('.project-desc')[roundedIndex].offsetHeight; /* trigger reflow */
-                document.querySelectorAll('.project-video')[roundedIndex].style.animation = '';
-                document.querySelectorAll('.project-desc')[roundedIndex].style.animation = '';
-
                 var activeRoundedIndex = Math.floor(Array.from(document.querySelectorAll('.project-item')).indexOf(activeItem) / 3)
         
                 if (!document.querySelectorAll('.decor-arrow')[roundedIndex].classList.contains('active'))
                 {
-                    if (document.querySelectorAll('.project-content iframe')[roundedIndex].src != projectsData[index].video_link)
-                    {
-                        document.querySelectorAll('.project-content iframe')[roundedIndex].src = projectsData[index].video_link;                 
-                        sleep(700);
-                    }
-
-                    switchProjectItemDetails(roundedIndex, index, item);
-                    
+                    updateActiveItem(roundedIndex, index, item);
                     toggleProjectContent(roundedIndex, true);
                     window.scroll(0, (findPos(document.querySelectorAll('.decor-arrow')[roundedIndex]) - 368));
         
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     {
                         if (document.querySelectorAll('.decor-arrow')[activeRoundedIndex].classList.contains('active'))
                         {
-                            toggleProjectContent(activeRoundedIndex, false);
+                            toggleProjectContent(activeRoundedIndex,  false);
         
                             if (roundedIndex != 0)
                                 window.scroll(0, (findPos(document.querySelectorAll('.decor-arrow')[roundedIndex]) - 958));
@@ -105,14 +107,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 else if (item === activeItem)
                 {
+                    document.querySelectorAll('.project-video iframe')[activeIndex].classList.toggle('active', false);
+                    document.querySelectorAll('.project-content')[activeIndex].classList.toggle('active', false);
+                    document.querySelectorAll('.project-desc')[activeIndex].classList.toggle('active', false);
                     toggleProjectContent(activeRoundedIndex, false);
                     window.scroll(0, findPos(document.getElementById("projects")));
                     activeItem = null;
                 }
                 else
                 {
-                    document.querySelectorAll('.project-content iframe')[roundedIndex].src = projectsData[index].video_link;  
-                    switchProjectItemDetails(roundedIndex, index, item);
+                    updateActiveItem(roundedIndex, index, item);
                 }
             })
         
@@ -143,6 +147,33 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }, 'experience_data.json');
 }, false);
+
+function updateActiveItem(roundedIndex, index, item)
+{
+    if (activeIndex > -1)
+    {
+        document.querySelectorAll('.project-video iframe')[activeIndex].classList.toggle('active', false);
+        document.querySelectorAll('.project-content')[activeIndex].classList.toggle('active', false);
+        document.querySelectorAll('.project-desc')[activeIndex].classList.toggle('active', false);
+    }
+    document.querySelectorAll('.project-content')[index].classList.toggle('active', true);
+    document.querySelectorAll('.project-video iframe')[index].classList.toggle('active', true);
+    document.querySelectorAll('.project-desc')[index].classList.toggle('active', true);
+
+    activeItem = item;
+    activeIndex = index;
+
+    var pos = getPosition(document.querySelectorAll('.project-item')[index]);
+    var margincalc = Math.trunc(pos.x)// - Math.trunc(window.innerWidth);
+    console.log(margincalc);
+    document.querySelectorAll('.decor-arrow')[roundedIndex].style.marginLeft = margincalc + 'px';
+}
+
+function toggleProjectContent(roundedIndex, isActive)
+{
+    document.querySelectorAll('.decor-arrow')[roundedIndex].classList.toggle('active', isActive);
+    document.querySelectorAll('.project-section')[roundedIndex].classList.toggle('active', isActive);
+}
 
 function sleep(milliseconds) {
     const date = Date.now();
@@ -191,6 +222,32 @@ function loadJSON(callback, fileName) {
           }
     };
     xobj.send(null);  
+}
+
+function getPosition(el) {
+    var xPos = 0;
+    var yPos = 0;
+   
+    while (el) {
+      if (el.tagName == "BODY") {
+        // deal with browser quirks with body/window/document and page scroll
+        var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+        var yScroll = el.scrollTop || document.documentElement.scrollTop;
+   
+        xPos += (el.offsetLeft - xScroll + el.clientLeft);
+        yPos += (el.offsetTop - yScroll + el.clientTop);
+      } else {
+        // for all other non-BODY elements
+        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+      }
+   
+      el = el.offsetParent;
+    }
+    return {
+      x: xPos,
+      y: yPos
+    };
 }
 
 function toggleFooter()
@@ -242,34 +299,6 @@ document.addEventListener('scroll', ()=> {
     if (scroll_position < findPos(document.getElementById("hide-footer-pos")))
         retractFooter();
 })
-
-function switchProjectItemDetails(roundedIndex, index, item)
-{
-    activeItem = item;
-    
-    document.querySelectorAll('.project-desc h1')[roundedIndex].textContent = projectsData[index].title;
-    document.querySelectorAll('.project-desc p')[roundedIndex].textContent = projectsData[index].description;
-
-    switch (index % 3)
-    {
-        case 0:
-            document.querySelectorAll('.decor-arrow')[roundedIndex].style.marginRight = "900px";
-            break;
-        case 1:
-            document.querySelectorAll('.decor-arrow')[roundedIndex].style.marginRight = "0px";
-            break;
-        case 2:
-            document.querySelectorAll('.decor-arrow')[roundedIndex].style.marginRight = "-900px";
-            break;
-    }
-}
-
-function toggleProjectContent(index, isActive)
-{
-    document.querySelectorAll('.decor-arrow')[index].classList.toggle('active', isActive);
-    document.querySelectorAll('.project-content')[index].classList.toggle('active', isActive);
-    document.querySelectorAll('.project-video iframe')[index].classList.toggle('active', isActive);
-}
 
 contact_expand.addEventListener('click', toggleFooter);
 

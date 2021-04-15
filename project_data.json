@@ -52,5 +52,23 @@
         "description": "Nothing to show as of yet but go to contact me to receive an update!",
         "github_link": "sup",
         "itchio_link": "sup"
+    },
+    {
+        "static_path": "url(./img/vr2_static.jpg)",
+        "gif_path": "url(./img/vr2.gif)",
+        "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
+        "title": "University",
+        "description": "Nothing to show as of yet but go to contact me to receive an update!",
+        "github_link": "sup",
+        "itchio_link": "sup"
+    },
+    {
+        "static_path": "url(./img/vr2_static.jpg)",
+        "gif_path": "url(./img/vr2.gif)",
+        "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
+        "title": "University",
+        "description": "Nothing to show as of yet but go to contact me to receive an update!",
+        "github_link": "sup",
+        "itchio_link": "sup"
     }
 ]
