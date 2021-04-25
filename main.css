@@ -244,21 +244,21 @@ img
 }
 #projects .project-video iframe.active
 {
-	height: 380px;
-	width: 675px;
+	height: 366px;
+	width: 650px;
 	transform:scaleY(1);
 	opacity: 1;
 }
 #projects .project-desc
 {
-	height: 375px;
-	width: 50%;
+	height: 400px;
+	width: 47%;
 	display: flex;
 	text-align: left;
 	align-items: left;
     justify-content: left;
 	flex-direction: column;
-	padding-left: 60px;
+	padding-left: 70px;
 	color: var(--projectCardFontColor);
 	transform: scaleY(0);
 	opacity: 0;
@@ -268,6 +268,17 @@ img
 {
 	transform:scaleY(1);
 	opacity: 1;
+}
+#projects .project-desc h1
+{
+	font-size: 4.5rem;
+	text-align: left;
+	color: var(--projectCardFontColor);
+}
+#projects .project-desc p
+{
+	margin: 5px;
+	font-size: 2rem;
 }
 #projects .project-icons
 {
@@ -281,16 +292,6 @@ img
 {
 	width: 64px;
 	margin: 15px;
-}
-#projects .project-desc h1
-{
-	font-size: 4.5rem;
-	text-align: left;
-	color: var(--projectCardFontColor);
-}
-#projects .project-desc p
-{
-	font-size: 2rem;
 }
 #projects .project-item
 {
@@ -336,7 +337,7 @@ img
 {
 	color: var(--footerFontColor);
 	font-size: 4rem;
-	padding: 10px
+	padding: 10px;
 }
 /* End Projects Section */
 
@@ -485,7 +486,7 @@ img
 	width: 50px;
 	margin: 0 5px;
 }
-#footer .email-text,.twitter-text,.linkedin-text
+#footer .email-text,.twitter-text,.linkedin-text,.location-text
 {
 	width: 0;
 	transform: scaleX(0);
@@ -507,6 +508,10 @@ img
 	width: 80px;
 }
 #footer .linkedin-text.active
+{
+	width: 58px;
+}
+#footer .location-text.active
 {
 	width: 70px;
 }

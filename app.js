@@ -19,7 +19,6 @@ var activeIndex = -1;
 document.addEventListener('DOMContentLoaded', function() {
 
     loadJSON(function(response) {
-
         projectsData = JSON.parse(response);
         projectsData.forEach((item, index) => {
             if ((index % 3) === 0)
@@ -44,26 +43,29 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.project-section')[Math.floor(index / 3)].innerHTML += (
                 '<div class="project-content">\n' +
                     '<div class="project-video">\n' +
-                        '<iframe width="0" height="0" src="' + projectsData[index].video_link + '"></iframe>\n' +
+                        '<iframe width="675px" height="380px" src="' + projectsData[index].video_link + '?enablejsapi=1"></iframe>\n' +
                     '</div>\n' +
                     '<div class="project-desc">\n' +
                         '<h1>' + projectsData[index].title + '</h1>\n' +
-                        '<p>' + projectsData[index].description + '</p>\n' +
+                        projectsData[index].description + '\n' +
                         '<div class="project-icons">\n' +
-                            '<div class="project-link">\n' +
-                                '<a href="' + projectsData[index].github_link + '">\n' +
-                                    '<img src="https://img.icons8.com/dusk/128/000000/github.png"/>\n' +
-                                '</a>\n' +
-                            '</div>\n' +
-                            '<div class="project-link">\n' +
-                                '<a href="' + projectsData[index].itchio_link + '">\n' +
-                                    '<img src="https://img.icons8.com/dusk/128/000000/itch-io.png"/>\n' +
-                                '</a>\n' +
-                            '</div>\n' +
                         '</div>\n' +
                     '</div>\n' +
                 '</div>\n'
             )
+            
+            if (projectsData[index].links.length != 0)
+            {
+                projectsData[index].links.forEach((linkItem) => {
+                    document.querySelectorAll('.project-icons')[index].innerHTML += (
+                        '<div class="project-link">\n' +
+                            '<a href="' + linkItem.link + '" target="_blank" rel="noopener noreferrer">\n' +
+                                '<img src="' + linkItem.icon + '"/>\n' +
+                            '</a>\n' +
+                        '</div>\n'
+                    )
+                })
+            }
         })
 
         if ((document.querySelectorAll('.project-item').length % 3) > 0)
@@ -92,26 +94,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 {
                     updateActiveItem(roundedIndex, index, item);
                     toggleProjectContent(roundedIndex, true);
-                    window.scroll(0, (findPos(document.querySelectorAll('.decor-arrow')[roundedIndex]) - 368));
-        
+
                     if (activeRoundedIndex>=0)
-                    {
                         if (document.querySelectorAll('.decor-arrow')[activeRoundedIndex].classList.contains('active'))
-                        {
                             toggleProjectContent(activeRoundedIndex,  false);
-        
-                            if (roundedIndex != 0)
-                                window.scroll(0, (findPos(document.querySelectorAll('.decor-arrow')[roundedIndex]) - 958));
-                        }
-                    }
+
+                    if (roundedIndex > activeRoundedIndex && activeRoundedIndex >= 0)
+                        window.scroll(0, findPos(document.querySelectorAll('.decor-arrow')[activeRoundedIndex]) - (-142));
+                    else
+                        window.scroll(0, (findPos(document.querySelectorAll('.decor-arrow')[roundedIndex]) - 246));
                 }
                 else if (item === activeItem)
                 {
-                    document.querySelectorAll('.project-video iframe')[activeIndex].classList.toggle('active', false);
-                    document.querySelectorAll('.project-content')[activeIndex].classList.toggle('active', false);
-                    document.querySelectorAll('.project-desc')[activeIndex].classList.toggle('active', false);
+                    RemoveActiveProject();
                     toggleProjectContent(activeRoundedIndex, false);
-                    window.scroll(0, findPos(document.getElementById("projects")));
+                    if (roundedIndex === 0)
+                        window.scroll(0, 0);
+                    else
+                        window.scroll(0, findPos(document.querySelectorAll('.decor-arrow')[roundedIndex - 1]) - 368);
                     activeItem = null;
                 }
                 else
@@ -148,14 +148,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 'experience_data.json');
 }, false);
 
+function RemoveActiveProject()
+{
+    $('.project-video iframe')[activeIndex].contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
+    document.querySelectorAll('.project-video iframe')[activeIndex].classList.toggle('active', false);
+    document.querySelectorAll('.project-content')[activeIndex].classList.toggle('active', false);
+    document.querySelectorAll('.project-desc')[activeIndex].classList.toggle('active', false);
+}
+
 function updateActiveItem(roundedIndex, index, item)
 {
     if (activeIndex > -1)
-    {
-        document.querySelectorAll('.project-video iframe')[activeIndex].classList.toggle('active', false);
-        document.querySelectorAll('.project-content')[activeIndex].classList.toggle('active', false);
-        document.querySelectorAll('.project-desc')[activeIndex].classList.toggle('active', false);
-    }
+        RemoveActiveProject();
+
     document.querySelectorAll('.project-content')[index].classList.toggle('active', true);
     document.querySelectorAll('.project-video iframe')[index].classList.toggle('active', true);
     document.querySelectorAll('.project-desc')[index].classList.toggle('active', true);
@@ -163,10 +168,8 @@ function updateActiveItem(roundedIndex, index, item)
     activeItem = item;
     activeIndex = index;
 
-    var pos = getPosition(document.querySelectorAll('.project-item')[index]);
-    var margincalc = Math.trunc(pos.x)// - Math.trunc(window.innerWidth);
-    console.log(margincalc);
-    document.querySelectorAll('.decor-arrow')[roundedIndex].style.marginLeft = margincalc + 'px';
+    let offsetCalc = ((item.offsetLeft + item.offsetWidth / 2) - (document.body.clientWidth / 2)) * 2;
+    document.querySelectorAll('.decor-arrow')[roundedIndex].style.marginLeft = offsetCalc + 'px';
 }
 
 function toggleProjectContent(roundedIndex, isActive)
@@ -222,32 +225,6 @@ function loadJSON(callback, fileName) {
           }
     };
     xobj.send(null);  
-}
-
-function getPosition(el) {
-    var xPos = 0;
-    var yPos = 0;
-   
-    while (el) {
-      if (el.tagName == "BODY") {
-        // deal with browser quirks with body/window/document and page scroll
-        var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-        var yScroll = el.scrollTop || document.documentElement.scrollTop;
-   
-        xPos += (el.offsetLeft - xScroll + el.clientLeft);
-        yPos += (el.offsetTop - yScroll + el.clientTop);
-      } else {
-        // for all other non-BODY elements
-        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
-      }
-   
-      el = el.offsetParent;
-    }
-    return {
-      x: xPos,
-      y: yPos
-    };
 }
 
 function toggleFooter()

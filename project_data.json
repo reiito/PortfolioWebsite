@@ -4,71 +4,59 @@
         "gif_path": "url(./img/vr.gif)",
         "video_link": "https://www.youtube.com/embed/B4CcX720DW4",
         "title": "VR PC Builder (WIP)",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
+        "description": "<p>Nothing to show yet but contact me to receive updates! (Not a mailing list)</p><p>Please enjoy this song I like in the meantime :)</p>",
+        "links": [
+        ]
     },
     {
-        "static_path": "url(./img/vr_static.jpg)",
-        "gif_path": "url(./img/vr.gif)",
+        "static_path": "url(./img/website_static.png)",
+        "gif_path": "url(./img/website.gif)",
         "video_link": "https://www.youtube.com/embed/us3pCHd8PLs",
         "title": "Portfolio Website",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
+        "description": "<p>\"What is the best way to show your stuff? A website!\"</p><p>I wanted to make one that showed my work front and centre but as cheaply as possible so I decided to make it myself and found it was a good opportunity to learn something new.</p><p>Using only HTML/CSS/JavaScript, I was able to achieve dynamically loaded content for future additions and fully mobile friendly, all hosted for free on GitHub.</p><p>Let me know what you think!</p>",
+        "links": [
+            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/PortfolioWebsite" }
+        ]
     },
     {
-        "static_path": "url(./img/vr_static.jpg)",
+        "static_path": "url(./img/corporate_static.png)",
         "gif_path": "url(./img/vr.gif)",
         "video_link": "https://www.youtube.com/embed/G9Qm7P_9DBs",
         "title": "Corporate",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
+        "description": "<p>My role doesn't require me to do any software development but as I've got programming experience, I found some of the responsibilities I had could be automated by writing software.</p><p>One such task was access provisioning. It required the use of SailPoint’s Identity Now, which when it comes to provisioning multiple roles at a time, is very repetitive and slow. The major problem I faced was not having access to the site itself as I was not part of the application team and the restrictions around it. I got around this by utilising Selenium, allowing me to create a program that interacted with the website and doing the task for me in quick succession, saving hours of work (and headache).</p><p>Others included writing email based macros in excel for quick and easy data extraction / sending.</p><p>(Unfortunately I am unable to link to the source for security reasons)</p>",
+        "links": [
+        ]
     },
     {
-        "static_path": "url(./img/vr2_static.jpg)",
-        "gif_path": "url(./img/vr2.gif)",
-        "video_link": "https://www.youtube.com/embed/SQNtGoM3FVU",
+        "static_path": "url(./img/menu_static.png)",
+        "gif_path": "url(./img/menu.gif)",
+        "video_link": "https://www.youtube.com/embed/VRm-mqGhOUI",
         "title": "Fireborn Menu System",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
+        "description": "<p>After the fun we had during the global game jam and the demonstration of my knowledge in Unreal Engine, Tyson from Toybox Games contracted me to build a menu system for Fireborn to use during their PAX Australia showcase.</p><p>It took around two weeks to complete and integrate with features such as: keyboard/controller support, settings, designer customisable elements, nice animations, and session persistency.</p><p>I built it in blueprints and provided documentation for use by the designer.</p><p>I've linked to an independent project as the game is still unreleased (under NDA but posted with permission).</p>",
+        "links": [
+            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/PortfolioWebsite" },
+            { "icon": "https://img.icons8.com/dusk/128/000000/itch-io.png", "link": "https://github.com/reiito/PortfolioWebsite" }
+        ]
     },
     {
-        "static_path": "url(./img/vr_static.jpg)",
-        "gif_path": "url(./img/vr.gif)",
-        "video_link": "https://www.youtube.com/embed/e05ClTDW9F4",
+        "static_path": "url(./img/ubg_static.png)",
+        "gif_path": "url(./img/ubg.gif)",
+        "video_link": "https://www.youtube.com/embed/yyWoBym0i3Y",
         "title": "Melbourne GGJ 2019",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
+        "description": "<p>Working with a team formed at the IGDA Melbourne meeting, we set out to make a homey feeling game set in the Australian outback. You traverse the beautiful Northern Territory as a Wedge Tail Eagle, hunting to feed your chicks.</p><p>I was in charge of the player character and the game loop, implementing a flight movement controller that could pick up prey and return them to it's nest.</p>",
+        "links": [
+            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/untitled-birb-game" },
+            { "icon": "https://img.icons8.com/dusk/128/000000/itch-io.png", "link": "https://toybox-games-studios.itch.io/untitled-birb-game" }
+        ]
     },
     {
-        "static_path": "url(./img/vr2_static.jpg)",
+        "static_path": "url(./img/university_static.png)",
         "gif_path": "url(./img/vr2.gif)",
         "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
         "title": "University",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
-    },
-    {
-        "static_path": "url(./img/vr2_static.jpg)",
-        "gif_path": "url(./img/vr2.gif)",
-        "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
-        "title": "University",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
-    },
-    {
-        "static_path": "url(./img/vr2_static.jpg)",
-        "gif_path": "url(./img/vr2.gif)",
-        "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
-        "title": "University",
-        "description": "Nothing to show as of yet but go to contact me to receive an update!",
-        "github_link": "sup",
-        "itchio_link": "sup"
+        "description": "<p>There were a myriad of projects completed during my time at university. An unforgiving platformer, a game a week for 10 weeks, a Microsoft Hololens application, a game jam and more.</p><p>While mainly a programmer for all of them, I also took on the role of a designer, a producer and an artist during development.</p><p>The video informs of my role in each project and I've linked them below to try/inspect.</p>",
+        "links": [
+            { "icon": "https://img.icons8.com/dusk/128/000000/itch-io.png", "link": "https://rei-ito.itch.io/rmit-university-collection" }
+        ]
     }
 ]
