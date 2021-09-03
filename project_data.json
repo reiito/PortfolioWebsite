@@ -1,11 +1,12 @@
 [
     {
-        "static_path": "url(./img/vr_static.jpg)",
-        "gif_path": "url(./img/vr.gif)",
+        "static_path": "url(./img/pop_static.png)",
+        "gif_path": "url(./img/pop1.gif)",
         "video_link": "https://www.youtube.com/embed/B4CcX720DW4",
-        "title": "VR PC Builder (WIP)",
-        "description": "<p>Nothing to show yet but contact me to receive updates! (Not a mailing list)</p><p>Please enjoy this song I like in the meantime :)</p>",
+        "title": "Japanese Falsh Cards",
+        "description": "<p>I attend Japanese classes every weekend to learn the language I wish I learned in my adolescence but one of the main problems I found during classes was that I struggle retaining the vocabulary so I built an application that can help me study even while I work.</p><p>Written in C#, it pops up based on a timer, selects a random word from a vocab list, presents multiple answers in button form and gives a couple chances to get it correct only to minimise and begins the loop again.</p><p>I'm happy with the result as through the use of this tool, I have noticed a tangible improvement on my performance in class and in general.<p/>",
         "links": [
+            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/PortfolioWebsite" }
         ]
     },
     {
@@ -20,10 +21,10 @@
     },
     {
         "static_path": "url(./img/corporate_static.png)",
-        "gif_path": "url(./img/vr.gif)",
-        "video_link": "https://www.youtube.com/embed/G9Qm7P_9DBs",
+        "gif_path": "url(./img/corporate.gif)",
+        "video_link": "https://www.youtube.com/embed/pmqg8F1pbWc",
         "title": "Corporate",
-        "description": "<p>My role doesn't require me to do any software development but as I've got programming experience, I found some of the responsibilities I had could be automated by writing software.</p><p>One such task was access provisioning. It required the use of SailPoint’s Identity Now, which when it comes to provisioning multiple roles at a time, is very repetitive and slow. The major problem I faced was not having access to the site itself as I was not part of the application team and the restrictions around it. I got around this by utilising Selenium, allowing me to create a program that interacted with the website and doing the task for me in quick succession, saving hours of work (and headache).</p><p>Others included writing email based macros in excel for quick and easy data extraction / sending.</p><p>(Unfortunately I am unable to link to the source for security reasons)</p>",
+        "description": "<p>My role doesn't require me to do any software development but as I've got programming experience, I found some of the responsibilities I had could be automated by writing software.</p><p>One such task was access provisioning. It required the use of SailPoint’s IdentityNow, which when it comes to provisioning multiple roles at a time, is very repetitive and slow. The major problem I faced was not having access to the site itself as I was not part of the application team and the restrictions around it. I got around this by utilising Selenium, allowing me to create a program that interacted with the website and doing the task for me in quick succession, saving hours of work (and headache).</p><p>Others included writing email based macros in excel for quick and easy data extraction / sending.</p><p>(Unfortunately I am unable to link to the source for security reasons)</p>",
         "links": [
         ]
     },
@@ -32,10 +33,8 @@
         "gif_path": "url(./img/menu.gif)",
         "video_link": "https://www.youtube.com/embed/VRm-mqGhOUI",
         "title": "Fireborn Menu System",
-        "description": "<p>After the fun we had during the global game jam and the demonstration of my knowledge in Unreal Engine, Tyson from Toybox Games contracted me to build a menu system for Fireborn to use during their PAX Australia showcase.</p><p>It took around two weeks to complete and integrate with features such as: keyboard/controller support, settings, designer customisable elements, nice animations, and session persistency.</p><p>I built it in blueprints and provided documentation for use by the designer.</p><p>I've linked to an independent project as the game is still unreleased (under NDA but posted with permission).</p>",
+        "description": "<p>After the fun we had during the global game jam and the demonstration of my knowledge in Unreal Engine, Tyson from Toybox Games contracted me to build a menu system for Fireborn to use during their PAX Australia showcase.</p><p>It took around two weeks to complete and integrate with features such as: keyboard/controller support, settings, designer customisable elements, nice animations, and session persistency.</p><p>I built it in blueprints and provided documentation for use by the designer.</p><p>(I cannot link to the source as it is currently under NDA)</p>",
         "links": [
-            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/PortfolioWebsite" },
-            { "icon": "https://img.icons8.com/dusk/128/000000/itch-io.png", "link": "https://github.com/reiito/PortfolioWebsite" }
         ]
     },
     {

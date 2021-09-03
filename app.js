@@ -1,9 +1,10 @@
+const hamburger = document.querySelector('.hamburger');
 const header_name = document.querySelector('.header .nav-bar a h1');
-
 const contact_expand = document.querySelector('.footer .expand-footer img');
 const contact_h1 = document.querySelector('.footer h1');
 const contact = document.querySelector('.footer');
 const contact_form = document.querySelector('.fcf-body');
+const social_icons = document.querySelector('.social-icons');
 const social_texts = document.querySelectorAll('.footer .social-text');
 
 const test = document.querySelector('.experience-item h2');
@@ -16,12 +17,29 @@ var experienceData;
 var activeItem = null;
 var activeIndex = -1;
 
+var screenChangeWidth = 1200;
+
+var isMobile = /iPhone|iPod|Android/i.test(navigator.userAgent);
+var smallScreen = isMobile || window.innerWidth <= screenChangeWidth;
+
 document.addEventListener('DOMContentLoaded', function() {
 
     loadJSON(function(response) {
         projectsData = JSON.parse(response);
         projectsData.forEach((item, index) => {
-            if ((index % 3) === 0)
+            if (smallScreen)
+            {
+                document.querySelector('.projects').innerHTML += (
+                    '<div class="projects-row">\n' +
+                    '</div>\n' +
+                    '<div class="decor-arrow">\n' +
+                        '<img src="https://img.icons8.com/fluent-systems-filled/96/000000/sort-up.png"/>\n' +
+                    '</div>\n' +
+                    '<div class="project-section">\n' +
+                    '</div>\n'
+                )
+            }
+            else if ((index % 3) === 0)
             {
                 document.querySelector('.projects').innerHTML += (
                     '<div class="projects-row">\n' +
@@ -34,13 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 )
             }
 
-            document.querySelectorAll('.projects-row')[Math.floor(index / 3)].innerHTML += (
+            document.querySelectorAll('.projects-row')[smallScreen ? index : Math.floor(index / 3)].innerHTML += (
                 '<div class="project-item project-card-color">\n' +
                     '<h2>' + projectsData[index].title + '</h2>\n' +
                 '</div>\n'
             )
 
-            document.querySelectorAll('.project-section')[Math.floor(index / 3)].innerHTML += (
+            document.querySelectorAll('.project-section')[smallScreen ? index : Math.floor(index / 3)].innerHTML += (
                 '<div class="project-content">\n' +
                     '<div class="project-video">\n' +
                         '<iframe width="675px" height="380px" src="' + projectsData[index].video_link + '?enablejsapi=1"></iframe>\n' +
@@ -66,9 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     )
                 })
             }
+
+            if (smallScreen)
+                document.querySelectorAll('.project-item')[index].classList.add('project-item-diff3');
         })
 
-        if ((document.querySelectorAll('.project-item').length % 3) > 0)
+        if ((document.querySelectorAll('.project-item').length % 3) > 0 && !smallScreen)
         {
             if ((document.querySelectorAll('.project-item').length % 3) == 1)
             {
@@ -82,14 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         document.querySelectorAll('.project-item').forEach((item, index) => {
-            var roundedIndex = Math.floor(index / 3);
+            var roundedIndex = smallScreen ? index : Math.floor(index / 3);
 
             item.classList.add('project-'+[index]);
             document.querySelector('.project-'+ [index]).style.backgroundImage = projectsData[index].static_path;
 
             item.addEventListener('click', () => {
-                var activeRoundedIndex = Math.floor(Array.from(document.querySelectorAll('.project-item')).indexOf(activeItem) / 3)
-        
+                var activeRoundedIndex = Math.floor(Array.from(document.querySelectorAll('.project-item')).indexOf(activeItem) / (smallScreen ? 1 : 3))
+
                 if (!document.querySelectorAll('.decor-arrow')[roundedIndex].classList.contains('active'))
                 {
                     updateActiveItem(roundedIndex, index, item);
@@ -146,6 +167,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('.experience-bottom').innerHTML += '<div class="arrow"><img src="https://img.icons8.com/windows/96/000000/up.png"/></div>\n';
         })
     }, 'experience_data.json');
+
+    if (window.innerWidth <= screenChangeWidth && !smallRefreshed)
+        smallRefreshed = true;
+    else if (window.innerWidth > screenChangeWidth && smallRefreshed)
+        smallRefreshed = false;
 }, false);
 
 function RemoveActiveProject()
@@ -201,30 +227,30 @@ async function handleSubmit(event) {
     var status = document.getElementById("fcf-button");
     var data = new FormData(event.target);
     fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
     }).then(response => {
-      status.innerHTML = "Thanks for your message, I'll be in touch!";
-      form.reset()
+        status.innerHTML = "Thanks for your message, I'll be in touch!";
+        form.reset()
     }).catch(error => {
-      status.innerHTML = "Oops, here was a problem. Please use the below methods instead."
+        status.innerHTML = "Oops, here was a problem. Please use the below methods instead."
     });
 }
 
-function loadJSON(callback, fileName) {   
+function loadJSON(callback, fileName) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', fileName, true); // Replace 'appDataServices' with the path to your file
     xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
+        if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
             callback(xobj.responseText);
-          }
+        }
     };
-    xobj.send(null);  
+    xobj.send(null);
 }
 
 function toggleFooter()
@@ -233,6 +259,7 @@ function toggleFooter()
     contact_expand.classList.toggle('active');
     contact_h1.classList.toggle('active');
     contact_form.classList.toggle('active');
+    social_icons.classList.toggle('active');
     social_texts.forEach(function(element) {
         element.classList.toggle('active');
     });
@@ -248,6 +275,7 @@ function retractFooter()
     contact_expand.classList.toggle('active', false);
     contact_h1.classList.toggle('active', false);
     contact_form.classList.toggle('active', false);
+    social_icons.classList.toggle('active', false);
     social_texts.forEach(function(element) {
         element.classList.toggle('active', false);
     });
@@ -257,25 +285,44 @@ function retractFooter()
     footerOpen = false;
 }
 
+var smallRefreshed = false;
+window.addEventListener('resize', ()=> {
+    if (window.innerWidth <= screenChangeWidth && !smallRefreshed)
+    {
+        smallRefreshed = true;
+        location.reload();
+    }
+    else if (window.innerWidth > screenChangeWidth && smallRefreshed)
+    {
+        smallRefreshed = false;
+        location.reload();
+    }
+});
+
 document.addEventListener('scroll', ()=> {
     var scroll_position = window.scrollY;
 
-	if (scroll_position > findPos(document.getElementById("show-name-pos")))
+    if (scroll_position > findPos(document.getElementById("show-name-pos")))
     {
-		header_name.style.fontSize = '4rem';
+        header_name.style.fontSize = '4rem';
         header_name.style.transform = 'scale(1)';
         header_name.style.opacity = '1';
-	}
-    else 
+    }
+    else
     {
         header_name.style.fontSize = '0';
         header_name.style.transform = 'scale(0)';
-		header_name.style.opacity = '0';
-	}
+        header_name.style.opacity = '0';
+    }
 
-    if (scroll_position < findPos(document.getElementById("hide-footer-pos")))
+    if (scroll_position < findPos(document.getElementById("experience")))
         retractFooter();
 })
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    document.querySelector('.hamburger .nav-list ul').classList.toggle('active');
+});
 
 contact_expand.addEventListener('click', toggleFooter);
 
