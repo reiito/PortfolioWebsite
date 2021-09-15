@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+	--fontColor: #FCF5EA;
+    --topColor: #8CBDB9;
+    --bottomColor: #2D3E4E;
+    --highlightColor: #E09E50;
+}
+html {
+    color: var(--fontColor);
+    font-size: 22px;
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+    margin: 0;
+}
+.background {
+    background: linear-gradient(0deg, var(--highlightColor), var(--topColor));
+    min-width: 100%;
+    min-height: 100%;
+}
+.container {
+    max-width: 32rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+.profile-picture {
+    width: 5rem;
+    border-radius: 100%;
+    margin-bottom: 1rem;
+}
+.name {
+    margin-bottom: 2rem;
+}
+.link {
+    display: block;
+    text-align: center;
+    width: 60%;
+    border: 2px solid var(--fontColor);
+    padding: .7rem;
+    transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+    color: var(--fontColor);
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.link:hover {
+    background: var(--fontColor);
+    color: var(--highlightColor);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    width: 65%;
+}
+.dropdown a {
+    display: block;
+    text-align: center;
+    border: 2px solid var(--fontColor);
+    padding: .6rem;
+    transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s,
+      background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+    color: var(--fontColor);
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    background: linear-gradient(0deg, var(--highlightColor), var(--topColor));
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    margin-bottom: 0rem;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background: var(--fontColor);
+    color: var(--highlightColor);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
