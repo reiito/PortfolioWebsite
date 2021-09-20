@@ -1,6 +1,6 @@
 [
     {
-        "static_path": "url(./img/pop_static.png)",
+        "static_path": "url(img/pop_static.png)",
         "gif_path": "url(./img/pop.gif)",
         "video_link": "https://www.youtube.com/embed/0wp3QdeE17w",
         "title": "Pop-up Flashcards",
@@ -10,7 +10,7 @@
         ]
     },
     {
-        "static_path": "url(./img/website_static.png)",
+        "static_path": "url(img/website_static.png)",
         "gif_path": "url(./img/website.gif)",
         "video_link": "https://www.youtube.com/embed/ZbTnV0M5qwU",
         "title": "Portfolio Website",
@@ -20,7 +20,7 @@
         ]
     },
     {
-        "static_path": "url(./img/corporate_static.png)",
+        "static_path": "url(img/corporate_static.png)",
         "gif_path": "url(./img/corporate.gif)",
         "video_link": "https://www.youtube.com/embed/pmqg8F1pbWc",
         "title": "Corporate",
@@ -29,7 +29,7 @@
         ]
     },
     {
-        "static_path": "url(./img/menu_static.png)",
+        "static_path": "url(img/menu_static.png)",
         "gif_path": "url(./img/menu.gif)",
         "video_link": "https://www.youtube.com/embed/VRm-mqGhOUI",
         "title": "Fireborn Menu System",
@@ -38,7 +38,7 @@
         ]
     },
     {
-        "static_path": "url(./img/ubg_static.png)",
+        "static_path": "url(img/ubg_static.png)",
         "gif_path": "url(./img/ubg.gif)",
         "video_link": "https://www.youtube.com/embed/yyWoBym0i3Y",
         "title": "Melbourne GGJ 2019",
@@ -49,7 +49,7 @@
         ]
     },
     {
-        "static_path": "url(./img/university_static.png)",
+        "static_path": "url(img/university_static.png)",
         "gif_path": "url(./img/university.gif)",
         "video_link": "https://www.youtube.com/embed/mjNhEnT1Im4",
         "title": "University",
