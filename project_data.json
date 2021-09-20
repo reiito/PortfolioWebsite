@@ -50,8 +50,8 @@
     },
     {
         "static_path": "url(./img/university_static.png)",
-        "gif_path": "url(./img/vr2.gif)",
-        "video_link": "https://www.youtube.com/embed/cg0TQyjdHJ0",
+        "gif_path": "url(./img/university.gif)",
+        "video_link": "https://www.youtube.com/embed/mjNhEnT1Im4",
         "title": "University",
         "description": "<p>There were a myriad of projects completed during my time at university. An unforgiving platformer, a game a week for 10 weeks, a Microsoft Hololens application, a game jam and more.</p><p>While mainly a programmer for all of them, I also took on the role of a designer, a producer and an artist during development.</p><p>The video informs of my role in each project and I've linked them below to inspect and try.</p>",
         "links": [
