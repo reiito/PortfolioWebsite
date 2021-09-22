@@ -292,8 +292,8 @@ img {
 	transition: height .5s ease, width .5s ease, opacity .5s ease, transform .5s ease;
 }
 #projects .project-video iframe.active {
-	height: clamp(202.5px, 28.13vw, 366px);
-	width: clamp(360px, 50vw, 650px);
+	height: clamp(196.88px, 28.13vw, 366px);
+	width: clamp(350px, 50vw, 650px);
 	transform: scaleY(1);
 	opacity: 1;
 }
@@ -514,19 +514,19 @@ img {
 	opacity: 1;
 }
 #footer .email-text.active {
-	width: clamp(97px, 20vw, 195px);
+	width: clamp(87px, 20vw, 195px);
 }
 #footer .twitter-text.active {
-	width: clamp(40px, 8vw, 80px);
+	width: clamp(33px, 8vw, 80px);
 }
 #footer .linkedin-text.active {
-	width: clamp(27px, 6vw, 58px);
+	width: clamp(22px, 6vw, 58px);
 }
 #footer .location-text.active {
-	width: clamp(35px, 10vw, 70px);
+	width: clamp(0px, 10vw, 70px);
 }
 #footer .social-text p {
-	font-size: clamp(1rem, 2vw, 2rem);
+	font-size: clamp(.9rem, 2vw, 2rem);
 	height: 65%;
 	white-space: nowrap;
 }
@@ -732,7 +732,7 @@ input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[typ
 @media only screen and (max-width: 1000px) {
 	#projects .project-item {
 		height: 200px;
-		width: 375px;
+		width: 357px;
 	}
 	#footer .expand-footer {
 		width: 30px;
@@ -741,7 +741,7 @@ input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[typ
 		filter: invert(95%) sepia(16%) saturate(577%) hue-rotate(305deg) brightness(107%) contrast(97%);
 	}
 	#footer .social-item.active {
-		width: 17px;
+		width: clamp(17px, 4vw, 45px);
 	}
 	.fcf-body {
 		width: 90%;
