@@ -6,7 +6,7 @@
         "title": "Pop-up Flashcards",
         "description": "<p>I attend Japanese classes every weekend to learn the language I wish I learned in my adolescence but one of the main problems I found during classes was that I struggle retaining the vocabulary so I built an application that can help me study even while I work.</p><p>Written in C#, it pops up based on a timer, selects a random word from a vocab list, presents multiple answers in button form and gives a couple chances to get it correct only to minimise and begins the loop again.</p><p>I'm happy with the result as through the use of this tool, I have noticed a tangible improvement on my performance in class and in general.<p/>",
         "links": [
-            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/PopupFlashcards" }
+            { "icon": "https://img.icons8.com/windows/128/000000/bitbucket.png", "link": "https://bitbucket.org/reiito/popup-flashcard/src/master/" }
         ]
     },
     {
@@ -16,7 +16,7 @@
         "title": "Portfolio Website",
         "description": "<p>\"What is the best way to show your stuff? A website!\"</p><p>I wanted to make one that showed my work front and centre but as cheaply as possible so I decided to make it myself and found it was a good opportunity to learn something new.</p><p>Using only HTML/CSS/JavaScript, I was able to achieve dynamically loaded content for future additions and fully mobile friendly, all hosted for free on GitHub.</p><p>Let me know what you think!</p>",
         "links": [
-            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/PortfolioWebsite" }
+            { "icon": "https://img.icons8.com/windows/128/000000/github.png", "link": "https://github.com/reiito/PortfolioWebsite" }
         ]
     },
     {
@@ -44,8 +44,8 @@
         "title": "Melbourne GGJ 2019",
         "description": "<p>Working with a team formed at the IGDA Melbourne meeting, we set out to make a homey feeling game set in the Australian outback. You traverse the beautiful Northern Territory as a Wedge Tail Eagle, hunting to feed your chicks.</p><p>I was in charge of the player character and the game loop, implementing a flight movement controller that could pick up prey and return them to it's nest.</p>",
         "links": [
-            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "https://github.com/reiito/untitled-birb-game" },
-            { "icon": "https://img.icons8.com/dusk/128/000000/itch-io.png", "link": "https://toybox-games-studios.itch.io/untitled-birb-game" }
+            { "icon": "https://img.icons8.com/windows/128/000000/bitbucket.png", "link": "https://bitbucket.org/reiito/untitled-birb-game/src/master/" },
+            { "icon": "https://img.icons8.com/windows/128/000000/itch-io.png", "link": "https://toybox-games-studios.itch.io/untitled-birb-game" }
         ]
     },
     {
@@ -55,8 +55,8 @@
         "title": "University",
         "description": "<p>There were a myriad of projects completed during my time at university. An unforgiving platformer, a game a week for 10 weeks, a Microsoft Hololens application, a game jam and more.</p><p>While mainly a programmer for all of them, I also took on the role of a designer, a producer and an artist during development.</p><p>The video informs of my role in each project and I've linked them below to inspect and try.</p>",
         "links": [
-            { "icon": "https://img.icons8.com/dusk/128/000000/github.png", "link": "./uni-links.html" },
-            { "icon": "https://img.icons8.com/dusk/128/000000/itch-io.png", "link": "https://rei-ito.itch.io/rmit-university-collection" }
+            { "icon": "https://img.icons8.com/windows/128/000000/bitbucket.png", "link": "./uni-links.html" },
+            { "icon": "https://img.icons8.com/windows/128/000000/itch-io.png", "link": "https://rei-ito.itch.io/rmit-university-collection" }
         ]
     }
 ]
