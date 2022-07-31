@@ -332,6 +332,10 @@ img {
 #projects .project-link {
 	width: clamp(45px, 5vw, 60px);
 	margin: 15px;
+	filter: brightness(0) saturate(100%) invert(92%) sepia(69%) saturate(390%) hue-rotate(294deg) brightness(112%) contrast(98%);
+}
+#projects .project-link:hover {
+	filter: brightness(0) saturate(100%) invert(79%) sepia(32%) saturate(258%) hue-rotate(126deg) brightness(87%) contrast(87%);
 }
 #projects .project-item {
 	height: 275px;
@@ -515,9 +519,6 @@ img {
 }
 #footer .email-text.active {
 	width: clamp(87px, 20vw, 195px);
-}
-#footer .twitter-text.active {
-	width: clamp(33px, 8vw, 80px);
 }
 #footer .linkedin-text.active {
 	width: clamp(22px, 6vw, 58px);
